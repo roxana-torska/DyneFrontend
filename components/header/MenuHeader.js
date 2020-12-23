@@ -454,10 +454,7 @@ class MenuHeader extends Component {
             aria-label="User Drawer"
             onClick={this.goToBack}
           >
-            <ArrowBack
-              color="primary"
-              className={classes.userDrawerCloseButton}
-            />
+
           </IconButton>
         ) : (
           <SearchIcon
@@ -483,7 +480,7 @@ class MenuHeader extends Component {
         aria-label="User Drawer"
         onClick={this.goToBack}
       >
-        <ArrowBack color="primary" className={classes.userDrawerCloseButton} />
+
       </IconButton>
     );
   };
