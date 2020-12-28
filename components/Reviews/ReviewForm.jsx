@@ -52,8 +52,6 @@ const ReviewForm = (props) => {
     }
   };
 
-  const skipTextReview = () => {};
-
   const handleChange = (e) => {
     setReviewText(e.target.value);
     setErrorMsg("");
@@ -89,11 +87,6 @@ const ReviewForm = (props) => {
           ></textarea>
         )}
       </div>
-      {formState > 0 && (
-        <Button className={classes.reviewLink} onClick={skipTextReview}>
-          Skip
-        </Button>
-      )}
       <Button className={classes.reviewLink} onClick={submitForm}>
         Submit
       </Button>
