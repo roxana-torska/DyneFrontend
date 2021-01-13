@@ -13,7 +13,7 @@ const ReviewForm = (props) => {
   const [reviewText, setReviewText] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  let indexArr = Array.from(Array(5), (_, i) => i + 1);
+  let indexArr = Array.from(Array(10), (_, i) => i + 1);
 
   const selectRating = (rating) => {
     setRating(rating);
