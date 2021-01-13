@@ -223,6 +223,7 @@ const styles = (theme) => {
     },
     topbar: {
       height: "49px",
+      borderBottom: "1px solid #2E3451",
     },
     topbarBack: {
       height: "49px",
