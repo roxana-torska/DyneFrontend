@@ -20,7 +20,7 @@ const Dish = ({ dish, token }) => {
       <ScrollTo>
         {({ scroll }) => (
           <AppLayout mode={"back"}>
-            <ScrollArea style={{ height: "calc(100vh)", /*overflowY: "scroll"*/ }}>
+            <ScrollArea style={{ /*height: "calc(100vh)", overflowY: "scroll"*/ }}>
               <HeroDish
                 dishName={dish.dishName}
                 restaurantName={dish.restaurantName}

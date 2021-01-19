@@ -79,7 +79,7 @@ const Restaurant = ({ restaurant, classes, dishes }) => {
                 <span> ({distanceToMe} km)</span>
               </div>
               <ScrollArea
-                style={{ height: "calc(100vh)", overflowY: "scroll" }}
+                style={{ /*height: "calc(100vh)", overflowY: "scroll" */}}
               >
                 <Grid
                   className={classes.adjustHeightGridOne}

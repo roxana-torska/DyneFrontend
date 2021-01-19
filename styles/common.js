@@ -1053,8 +1053,6 @@ const styles = (theme) => {
       minHeight: "600px",
       width: "100%",
       backgroundColor: "#000000",
-      position: "absolute",
-      bottom: "-2121px",
     },
     footerCol: {
       display: "flex",
