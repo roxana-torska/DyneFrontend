@@ -41,9 +41,9 @@ const SubHeader = (props) => {
       <div
         style={{
           position: "sticky",
-          top: "0px",
-          zIndex: "1",
-          height: "37px",
+          /*top: "0px",
+          height: "37px",*/
+          zIndex: "11",          
           backgroundColor: "#e1e1e1",
         }}
       >
@@ -65,8 +65,8 @@ const SubHeader = (props) => {
       <div
         style={{
           position: "sticky",
-          top: "0px",
-          zIndex: "99",
+          top: "0",
+          zIndex: "10",
           height: "37px",
         }}
       >

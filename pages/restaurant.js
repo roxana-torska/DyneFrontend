@@ -115,8 +115,8 @@ const Restaurant = ({ restaurant, classes, dishes }) => {
                     ></League>
                   </Grid>
                 </Grid>
-                <Categories></Categories>
-                <Reviews></Reviews>
+                <Categories />
+                <Reviews />
               </ScrollArea>
             </div>
           </AppLayout>

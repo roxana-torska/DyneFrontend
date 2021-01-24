@@ -5,7 +5,7 @@ import styles from "../../styles/common";
 import Typography from "@material-ui/core/Typography";
 import { searchDishes } from "../../redux/dishes/actions";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 
@@ -14,7 +14,26 @@ function Categories(props) {
     searchDishes(searchTerm, "force");
   }
 
-  const { classes, searchDishes, searchTerm, ExploreRef } = props;
+  const { classes, searchDishes, searchTerm, ExploreRef, force, clearSearch, mode } = props;
+  const [searchMode, setSearchMode] = useState(false);
+  function toggleSearchMode() {
+    if (searchMode) {
+      setSearchMode(false);
+      clearSearch();
+    } else {
+      setSearchMode(true);
+    }
+  }
+  function handleSearchTerm(searchTerm) {
+    searchDishes(searchTerm);
+  }
+  useEffect(() => {
+    if (searchTerm && searchTerm.length > 1) {
+      setSearchMode(true);
+    }
+  }, [searchTerm]);
+
+
 
   const categories = [
     {
@@ -58,42 +77,126 @@ function Categories(props) {
     },
   ];
   let i = 0;
-  return (
-    <React.Fragment>
-      <div
-        ref={ExploreRef}
-        style={{
-          zIndex: "999999",
-        }}
-      >
-        <Typography className={classes.ExploreTitle}>Explore</Typography>
-      </div>
-      <div className={classes.categories} component="section">
-        {categories.map((category) => (
-          <div
-            key={category.id}
-            onClick={() => handleSearchTerm(category.title)}
-            className={classes.categoriesCategory}
-            style={{
-              backgroundImage: `url(${categories[i++].url})`,
-              cursor: "pointer",
-            }}
-          >
+
+  if (mode === "drawer") {
+    return (
+      <React.Fragment>
+        <div
+          ref={ExploreRef}
+          style={{
+            zIndex: "10",
+            position: "sticky",
+            top: "-1px",
+          }}
+        >
+          <Typography className={classes.ExploreTitle}>Explore</Typography>
+        </div>
+        <div className={classes.categories} component="section">
+          {categories.map((category) => (
             <div
+              key={category.id}
+              onClick={() => handleSearchTerm(category.title)}
+              className={classes.categoriesCategory}
               style={{
-                fontSize: "40px",
-                fontFamily: "Poppins",
-                opacity: "1",
-                zIndex: "3",
+                backgroundImage: `url(${categories[i++].url})`,
+                cursor: "pointer",
               }}
             >
-              <span>{category.title} </span>
+              <div
+                style={{
+                  fontSize: "40px",
+                  fontFamily: "Poppins",
+                  opacity: "1",
+                  zIndex: "3",
+                }}
+              >
+                <span>{category.title} </span>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </React.Fragment>
-  );
+          ))}
+        </div>
+      </React.Fragment>
+    );
+  } else if (mode === "restaurants") {  
+    return (
+      <React.Fragment>
+        <div
+          ref={ExploreRef}
+          style={{
+            zIndex: "10",
+            position: "sticky",
+            top: "-1px",
+          }}
+        >
+          <Typography className={classes.ExploreTitle}>Explore</Typography>
+        </div>
+        <div className={classes.categories} component="section">
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              onClick={() => handleSearchTerm(category.title)}
+              className={classes.categoriesCategory}
+              style={{
+                backgroundImage: `url(${categories[i++].url})`,
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "40px",
+                  fontFamily: "Poppins",
+                  opacity: "1",
+                  zIndex: "13",
+                }}
+              >
+                <span>{category.title} </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </React.Fragment>
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <div
+          ref={ExploreRef}
+          style={{
+            zIndex: "10",
+            position: "sticky",
+            top: "48px",
+          }}
+        >
+          <Typography className={classes.ExploreTitle}>Explore</Typography>
+        </div>
+        <div className={classes.categories} component="section">
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              onClick={() => handleSearchTerm(category.title)}
+              className={classes.categoriesCategory}
+              style={{
+                backgroundImage: `url(${categories[i++].url})`,
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "40px",
+                  fontFamily: "Poppins",
+                  opacity: "1",
+                  zIndex: "13",
+                }}
+              >
+                <span>{category.title} </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </React.Fragment>
+    );
+  }
+
 }
 
 Categories.propTypes = {

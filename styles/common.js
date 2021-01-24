@@ -41,7 +41,7 @@ const styles = (theme) => {
     //material
     root: {
       scrollX: "none",
-      height: "45px",
+      height: "55px",
     },
 
     card: {
@@ -224,6 +224,11 @@ const styles = (theme) => {
     topbar: {
       height: "49px",
       borderBottom: "1px solid #2E3451",
+      position: "sticky",
+      top: "0",
+      zIndex: "15",
+      backgroundColor: "white",
+      width: "100%",
     },
     topbarBack: {
       height: "49px",
@@ -928,16 +933,14 @@ const styles = (theme) => {
       fontWeight: 300,
       marginBottom: "0px",
       fontWeight: "400",
-
+      position: "sticky",
+      zIndex: "10",
       color: "#000000",
-
+      top: "48px",
       backgroundColor: "#ffffff",
-
       borderBottom: "1px solid #2E3451",
       borderTop: "1px solid #2E3451",
-
       fontSize: "14px !important",
-
       boxSizing: "border-box",
     },
     reviewTitle: {
