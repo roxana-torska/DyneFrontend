@@ -70,125 +70,124 @@ const Reviews = (props) => {
     },
   ];
   if (mode === "restaurant") {
-  return (
-    <React.Fragment>
-      <div
-        style={{
-          zIndex: "15", 
-        }}
-      ></div>
-      <div className={classes.ExploreTitle}>
-        {withForm
-          ? showReviewForm === false
-            ? "Latest Reviews"
-            : "Add a Review"
-          : "Latest Reviews"}
+    return (
+      <React.Fragment>
         <div
-          className={
-            withForm &&
-            (showReviewForm
-              ? classes.subHeaderCloseBtn
-              : classes.subHeaderAddBtn)
-          }
-          onClick={toggleReviewForm}
-        >
-          {withForm ? (
-            showReviewForm === false ? (
-              <div className={classes.reviewBtnp}>
-                <img
-                  className={classes.plusIcon}
-                  src="../../static/icons/plus.svg"
-                ></img>
-              </div>
-            ) : (
-              <div className={classes.reviewBtnx}>
-                <img
-                  className={classes.plusIcon}
-                  src="../../static/icons/plus.svg"
-                />
-              </div>
-            )
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-      <ReviewForm
-        dishId={dishId}
-        token={token}
-        show={showReviewForm && withForm}
-        close={toggleReviewForm}
-      />
-      <div className={classes.reviews} component="section">
-        {reviewsArr.map((review) => (
-          <Review key={review.id} review={review} />
-        ))}
-      </div>
-      <div style={{ height: "12px" }}></div>
-    </React.Fragment>
-  );
-        } else {
-          return (
-            <React.Fragment>
-              <div
-                style={{
-                  position: "sticky",
-                  top: "0",
-                  zIndex: "15",
-                           
-                }}
-              ></div>
-              <div className={classes.ExploreTitle}>
-                {withForm
-                  ? showReviewForm === false
-                    ? "Latest Reviews"
-                    : "Add a Review"
-                  : "Latest Reviews"}
-                <div
-                  className={
-                    withForm &&
-                    (showReviewForm
-                      ? classes.subHeaderCloseBtn
-                      : classes.subHeaderAddBtn)
-                  }
-                  onClick={toggleReviewForm}
-                >
-                  {withForm ? (
-                    showReviewForm === false ? (
-                      <div className={classes.reviewBtnp}>
-                        <img
-                          className={classes.plusIcon}
-                          src="../../static/icons/plus.svg"
-                        ></img>
-                      </div>
-                    ) : (
-                      <div className={classes.reviewBtnx}>
-                        <img
-                          className={classes.plusIcon}
-                          src="../../static/icons/plus.svg"
-                        />
-                      </div>
-                    )
-                  ) : (
-                    ""
-                  )}
+          style={{
+            zIndex: "15",
+          }}
+        ></div>
+        <div className={classes.ExploreTitle}>
+          {withForm
+            ? showReviewForm === false
+              ? "Latest Reviews"
+              : "Add a Review"
+            : "Latest Reviews"}
+          <div
+            className={
+              withForm &&
+              (showReviewForm
+                ? classes.subHeaderCloseBtn
+                : classes.subHeaderAddBtn)
+            }
+            onClick={toggleReviewForm}
+          >
+            {withForm ? (
+              showReviewForm === false ? (
+                <div className={classes.reviewBtnp}>
+                  <img
+                    className={classes.plusIcon}
+                    src="../../static/icons/plus.svg"
+                  ></img>
                 </div>
-              </div>
-              <ReviewForm
-                dishId={dishId}
-                token={token}
-                show={showReviewForm && withForm}
-                close={toggleReviewForm}
-              />
-              <div className={classes.reviews} component="section">
-                {reviewsArr.map((review) => (
-                  <Review key={review.id} review={review} />
-                ))}
-              </div>
-              <div style={{ height: "12px" }}></div>
-            </React.Fragment>
-          );
-        }
+              ) : (
+                <div className={classes.reviewBtnx}>
+                  <img
+                    className={classes.plusIcon}
+                    src="../../static/icons/plus.svg"
+                  />
+                </div>
+              )
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <ReviewForm
+          dishId={dishId}
+          token={token}
+          show={showReviewForm && withForm}
+          close={toggleReviewForm}
+        />
+        <div className={classes.reviews} component="section">
+          {reviewsArr.map((review) => (
+            <Review key={review.id} review={review} />
+          ))}
+        </div>
+        <div style={{ height: "12px" }}></div>
+      </React.Fragment>
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <div
+          style={{
+            position: "sticky",
+            top: "0",
+            zIndex: "15",
+          }}
+        ></div>
+        <div className={classes.ExploreTitle}>
+          {withForm
+            ? showReviewForm === false
+              ? "Latest Reviews"
+              : "Add a Review"
+            : "Latest Reviews"}
+          <div
+            className={
+              withForm &&
+              (showReviewForm
+                ? classes.subHeaderCloseBtn
+                : classes.subHeaderAddBtn)
+            }
+            onClick={toggleReviewForm}
+          >
+            {withForm ? (
+              showReviewForm === false ? (
+                <div className={classes.reviewBtnp}>
+                  <img
+                    className={classes.plusIcon}
+                    src="../../static/icons/plus.svg"
+                  ></img>
+                </div>
+              ) : (
+                <div className={classes.reviewBtnx}>
+                  <img
+                    className={classes.plusIcon}
+                    src="../../static/icons/plus.svg"
+                  />
+                </div>
+              )
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <ReviewForm
+          dishId={dishId}
+          token={token}
+          show={showReviewForm && withForm}
+          close={toggleReviewForm}
+        />
+        <div className={classes.reviews} component="section">
+          {reviewsArr.map((review) => (
+            <Review key={review.id} review={review} />
+          ))}
+        </div>
+        <div style={{ height: "12px" }}></div>
+      </React.Fragment>
+    );
+  }
 };
 
 export default connect(

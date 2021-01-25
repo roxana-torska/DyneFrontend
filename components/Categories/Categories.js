@@ -9,12 +9,14 @@ import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 
+
 function Categories(props) {
+  const [value, setValue] = React.useState(0);
   function handleSearchTerm(searchTerm) {
     searchDishes(searchTerm, "force");
   }
 
-  const { classes, searchDishes, searchTerm, ExploreRef, force, clearSearch, mode } = props;
+  const { classes, searchDishes, searchTerm, ExploreRef, tabsValue, force, clearSearch, mode } = props;
   const [searchMode, setSearchMode] = useState(false);
   function toggleSearchMode() {
     if (searchMode) {
@@ -32,7 +34,13 @@ function Categories(props) {
       setSearchMode(true);
     }
   }, [searchTerm]);
-
+  
+  useEffect(() => {
+    console.log(tabsValue);
+    if (tabsValue != null) {
+      setValue(tabsValue);
+    }
+  }, [tabsValue]);
 
 
   const categories = [
@@ -78,7 +86,7 @@ function Categories(props) {
   ];
   let i = 0;
 
-  if (mode === "drawer") {
+  if (mode === "home") {
     return (
       <React.Fragment>
         <div

@@ -43,8 +43,9 @@ const SubHeader = (props) => {
           position: "sticky",
           /*top: "0px",
           height: "37px",*/
-          zIndex: "11",          
+          zIndex: "14",          
           backgroundColor: "#e1e1e1",
+          marginBottom: "-49px",
         }}
       >
         {!title ? (

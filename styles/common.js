@@ -602,6 +602,7 @@ const styles = (theme) => {
     },
     collapsedDish: {
       width: "calc(100vw - 18px)",
+      marginTop: "49px",
     },
 
     collapsedDishDishName: {
